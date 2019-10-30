@@ -7,32 +7,35 @@
 				<image class="head-image right-image" src="/static/wallace.jpg" />
 			</view>
 		</view>
-		<view class="title-holder">
-			<view class="title" v-for="(t, idx) in title" :key="idx">{{t}}</view>
+		<view class="txt-holder">
+			<view class="txt" v-for="(t, idx) in txt" :key="idx">{{t}}</view>
 		</view>
 	</view>
 </template>
 
 <script>
-const text = [
-	'~ Daisy & Wallace ~',
-	'are writting wechat program',
-	'it should be fun',
-	'~',
-]
+const text = `
+October 30th, 2019
+
+we start writting wechat program
+it should be fun
+
+~ Daisy & Wallace ~
+`
 
 export default {
 	data()
 	{
 		return {
-			title: [],
+			txt: [],
 			start: false,
 		}
 	},
 
-	onLoad()
+	async onLoad()
 	{
 		setTimeout(() => this.start = true, 500)
+		await sleep(500)
 		this.showText()
 	},
 
@@ -40,10 +43,13 @@ export default {
 	{
 		async showText()
 		{
-			for (let t of text)
+			for (let t of text.split('\n'))
 			{
-				this.title = [ ...this.title, t ]
-				await sleep(1500)
+				this.txt = [ ...this.txt, t ]
+				if (t)
+				{
+					await sleep(1000)
+				}
 			}
 		},
 	},
@@ -62,7 +68,7 @@ function sleep(milliseconds)
 	height: 100%;
 	display: flex;
 	/* align-items: center; */
-	margin-top: 250upx;
+	margin-top: 280upx;
 	justify-content: center;
 }
 
@@ -94,7 +100,7 @@ function sleep(milliseconds)
 	animation-fill-mode: forwards;
 }
 
-.title-holder {
+.txt-holder {
 	position: fixed;
 	top: 500upx;
 	width: 100%;
@@ -104,12 +110,13 @@ function sleep(milliseconds)
 	padding: 40upx;
 }
 
-.title {
+.txt {
 	text-align: center;
 	font-size: 36upx;
 	color: #6b6b6d;
 	animation: fadeshow 2s;
 	animation-fill-mode: forwards;
+	height: 50upx;
 }
 
 @keyframes small {
