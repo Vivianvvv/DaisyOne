@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view>
+		<view v-if="start">
 			<view class="image-holder">
 				<image class="head-image" src="/static/daisy.jpg" />
 				<view class="image-gap" />
@@ -19,14 +19,14 @@ export default {
 	{
 		return {
 			title: [ '~ Daisy & Wallace ~' ],
+			start: false,
 		}
 	},
 
 	onLoad()
 	{
-		setTimeout(() => {
-			this.title = [ ...this.title, 'is here' ]
-		}, 1000)
+		setTimeout(() => this.start = true, 1000)
+		setTimeout(() => this.title = [ ...this.title, 'is here' ], 3000)
 	},
 
 	methods:
@@ -77,7 +77,7 @@ export default {
 	text-align: center;
 	font-size: 36upx;
 	color: #8f8f94;
-	animation: fadeshow 1.5s;
+	animation: fadeshow 2s;
 	animation-fill-mode: forwards;
 }
 
