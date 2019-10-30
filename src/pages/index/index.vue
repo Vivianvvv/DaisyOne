@@ -25,13 +25,12 @@ export default {
 
 	onLoad()
 	{
-		setTimeout(() => this.start = true, 1000)
-		setTimeout(() => this.title = [ ...this.title, 'is here' ], 3000)
+		setTimeout(() => this.start = true, 500)
+		setTimeout(() => this.title = [ ...this.title, 'are here' ], 2000)
 	},
 
 	methods:
 	{
-
 	}
 }
 </script>
