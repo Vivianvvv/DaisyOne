@@ -11,7 +11,7 @@
 		   </view>
 		   <view class="login-text">
 			   <view class="dash-item">
-			      <view class="dash1"></view>登录<view class="dash3"></view>   <!--<image class="yuwanlogin" src="/static/yuwanlogin.png" />  -->
+			      <view class="dash1"></view>登录  <image class="yuwanlogin" src="/static/yuwanlogin.png" /> 
 		       </view>
 				<view class="conten-item">
 					<input v-model="name" type="text" placeholder="    请输入您的账号" />
@@ -95,28 +95,24 @@ export default {
 	margin: 50upx 40upx;
 	font-size: 48upx;
 	color: #6d6d6d;
+	position: relative;
 }
 
 .dash1 {
 	height: 1upx;
 	width: 150upx;
-	background-color: rgba(109, 107, 107, 0.8);
+	background-color: rgba(206, 203, 203, 0.8);
 	margin: 30upx ;
 }
-
- .dash3 {
-	height: 1upx;
-	width: 50upx;
-	background-color: rgba(109, 107, 107, 0.8);
-	margin: 30upx ;
-} 
-
 
  .yuwanlogin {
 	margin-top: 5upx;
 	margin-right:10upx;
 	width: 210upx;
 	height: 200upx;
+	position: absolute;
+	top: -125upx;
+	right: -10upx;
 } 
 
 .conten-item {
@@ -146,7 +142,7 @@ export default {
 .dash2 {
 	height: 1upx;
 	width: 520upx;
-	background-color: rgba(109, 107, 107, 0.8);
+	background-color:rgba(206, 203, 203, 0.8);
 	margin: 180upx 40upx 0;
 }
 
